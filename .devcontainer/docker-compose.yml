@@ -25,7 +25,6 @@ services:
     restart: unless-stopped
     network_mode: service:app
     environment:
-      POSTGRES_DB: tweet-scheduler_dev
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
 
