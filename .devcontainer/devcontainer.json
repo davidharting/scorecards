@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.155.1/containers/ruby-rails
+{
+  "name": "Ruby on Rails",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "build": {
+    "args": {
+      // Update 'VARIANT' to pick a Ruby version: 2, 2.7, 2.6, 2.5
+      "VARIANT": "2.7",
+      "NODE_VERSION": "lts/*"
+    }
+  },
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "rebornix.Ruby",
+    "bung87.rails",
+    "bung87.vscode-gemfile",
+    "aliariff.vscode-erb-beautify",
+    "jnbt.vscode-rufo"
+  ],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "bash ./.devcontainer/post-create.sh",
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "vscode"
+}
