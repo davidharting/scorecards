@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'pry'
 end
 
 group :development do
@@ -70,6 +72,8 @@ gem 'omniauth-github', '~> 1.4'
 gem 'omniauth-twitter', '~> 1.4'
 gem 'pundit', '~> 2.1'
 gem 'redis', '~> 4.2', '>= 4.2.2'
+gem "rexml", "~> 3.2"
 gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
 gem 'whenever', require: false
+

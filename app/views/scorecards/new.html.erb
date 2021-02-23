@@ -1,0 +1,19 @@
+<h1>Create a new scorecard</h1>
+
+<%= form_with model: @scorecard do |form| %>
+  <div class="form-group">
+    <%= form.label :name  %>
+    <small class="form-text text-muted">
+      What do you want to call this scorecard?
+    </small>
+    <%= form.text_field :name, class: @name_class%>
+    <% if @scorecard.errors.has_key?(:name) %>
+      <div class="invalid-feedback">
+        <%= @scorecard.errors.full_messages_for(:name).join(" ") %>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= form.button "Create", class: 'btn btn-primary' %>
+  </div>
+<% end %>
