@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FormInputComponent < ViewComponent::Base
+class Forms::TextComponent < ViewComponent::Base
   def initialize(form:, model:, attribute:, help:)
     @form = form
     @model = model

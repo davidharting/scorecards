@@ -3,7 +3,7 @@
 <%= form_with model: @scorecard do |form| %>
   <%=
     render(
-      FormInputComponent.new(
+      Forms::TextComponent.new(
         form: form,
         model: @scorecard,
         attribute: :name,
