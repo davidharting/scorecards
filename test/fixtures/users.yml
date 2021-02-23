@@ -1,5 +1,7 @@
 frodo:
   email: frodo@shirelife.com
+  encrypted_password: "ey1d"
 
 bilbo:
   email: bilbo@shirelife.com
+  encrypted_password: "abc123"

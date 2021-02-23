@@ -1,0 +1,12 @@
+<div class="form-group">
+  <%= @form.label @attribute %>
+  <% if not @help.nil? %>
+    <small class="form-text text-muted"><%= @help %></small>
+  <% end %>
+  <%= @form.text_field @attribute, class: @input_cx %>
+  <% if not @error_message.nil? %>
+    <div class="invalid-feedback">
+      <%= @error_message %>
+    </div>
+  <% end %>
+</div>
