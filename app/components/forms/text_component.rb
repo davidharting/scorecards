@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class Forms::TextComponent < ViewComponent::Base
-  def initialize(form:, attribute:, help:)
+  def initialize(form:, attribute:, help:, label: nil)
     @form = form
     @attribute = attribute
+    @label = label
     @help = help
     @input_cx = input_cx
     @has_error = has_error
