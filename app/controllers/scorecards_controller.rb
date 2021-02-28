@@ -3,11 +3,14 @@ class ScorecardsController < ApplicationController
 
   def new
     @scorecard = Scorecard.new
-    @name_class = 'form-control'
+    4.times { @scorecard.players.build }
   end
 
   def create
     @scorecard = current_user.scorecards.new(scorecard_params)
+    @scorecard.players.each { |p| p.destroy if p.name.nil? or p.name.empty? }
+
+    # binding.irb
     if @scorecard.save
       flash[:notice] = 'Successfully created scorecard'
       redirect_to root_path
@@ -20,6 +23,6 @@ class ScorecardsController < ApplicationController
   private
 
   def scorecard_params
-    params.require(:scorecard).permit(:name)
+    params.require(:scorecard).permit(:name, players_attributes: [:name])
   end
 end

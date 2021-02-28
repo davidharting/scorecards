@@ -10,6 +10,24 @@
       ),
     )
   %>
+
+  <ul class="list-group list-group-flush mb-3">
+    <%= form.fields_for :players do |players_form| %>
+      <li class="list-group-item">
+        <%=
+          render(
+            Forms::TextComponent.new(
+              form: players_form,
+              attribute: :name,
+              label: "Player #{players_form.index + 1}",
+              help: "Name of Player #{players_form.index + 1}",
+            ),
+          )
+        %>
+      </li>
+    <% end %>
+  </ul>
+
   <div class="form-group">
     <%= form.button "Create", class: 'btn btn-primary' %>
   </div>
