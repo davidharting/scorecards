@@ -3,3 +3,22 @@
   Use this document as a way to quickly start any new project.<br />
   All you get is this text and a mostly barebones HTML document.
 </p>
+
+<% if @user %>
+  <p>You are authenticated</p>
+
+  <h2>Your scorecards</h2>
+  <% if @scorecards.length < 1 %>
+    You do not have any scorecards yet.
+    <%= link_to 'Start a game?', new_scorecard_path %>
+  <% else %>
+    <%= link_to 'Start a new game?', new_scorecard_path %>
+    <ul>
+      <% @scorecards.each do |scorecard| %>
+        <li><%= scorecard.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% else %>
+  <p>Please sign in to see your stuff!</p>
+<% end %>
