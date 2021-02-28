@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scorecard: one
+  player: one
+  score: 3
+
+two:
+  scorecard: two
+  player: two
+  score: 45

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_172042) do
+ActiveRecord::Schema.define(version: 2021_02_28_213251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,16 @@ ActiveRecord::Schema.define(version: 2021_02_28_172042) do
     t.index ["scorecard_id"], name: "index_players_on_scorecard_id"
   end
 
+  create_table "rounds", force: :cascade do |t|
+    t.bigint "scorecard_id", null: false
+    t.bigint "player_id", null: false
+    t.integer "score", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_rounds_on_player_id"
+    t.index ["scorecard_id"], name: "index_rounds_on_scorecard_id"
+  end
+
   create_table "scorecards", force: :cascade do |t|
     t.string "name", limit: 280
     t.bigint "user_id", null: false
@@ -124,6 +134,8 @@ ActiveRecord::Schema.define(version: 2021_02_28_172042) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "players", "scorecards"
+  add_foreign_key "rounds", "players"
+  add_foreign_key "rounds", "scorecards"
   add_foreign_key "scorecards", "users"
   add_foreign_key "services", "users"
 end
