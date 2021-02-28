@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class Forms::TextComponent < ViewComponent::Base
-  def initialize(form:, model:, attribute:, help:)
+  def initialize(form:, attribute:, help:)
     @form = form
-    @model = model
     @attribute = attribute
     @help = help
     @input_cx = input_cx
@@ -14,7 +13,7 @@ class Forms::TextComponent < ViewComponent::Base
   private
 
   def has_error
-    @model.errors.has_key?(@attribute)
+    @form.object.errors.has_key?(@attribute)
   end
 
   def input_cx
@@ -22,6 +21,6 @@ class Forms::TextComponent < ViewComponent::Base
   end
 
   def error_message
-    has_error ? @model.errors.full_messages_for(:name).join(' ') : nil
+    has_error ? @form.object.errors.full_messages_for(:name).join(' ') : nil
   end
 end
