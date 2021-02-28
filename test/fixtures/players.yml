@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scorecard: one
+  name: David
+
+two:
+  scorecard: two
+  name: Stanley
