@@ -1,6 +1,11 @@
 class ScorecardsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @scorecard = current_user.scorecards.find(params[:id])
+    @players = @scorecard.players
+  end
+
   def new
     @scorecard = Scorecard.new
     4.times { @scorecard.players.build }

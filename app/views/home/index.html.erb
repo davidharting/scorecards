@@ -15,7 +15,9 @@
     <%= link_to 'Start a new game?', new_scorecard_path %>
     <ul>
       <% @scorecards.each do |scorecard| %>
-        <li><%= scorecard.name %></li>
+        <li>
+          <%= link_to scorecard.name, scorecard %>
+        </li>
       <% end %>
     </ul>
   <% end %>
