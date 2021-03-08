@@ -1,0 +1,16 @@
+<div class="form-group">
+  <%= @form.label @attribute, @label %>
+  <% if not @help.nil? %>
+    <small class="form-text text-muted"><%= @help %></small>
+  <% end %>
+  <% if @field_type == :text_field %>
+    <%= @form.text_field @attribute, class: @input_cx %>
+  <% elsif @field_type == :number_field %>
+    <%= @form.number_field @attribute, class: @input_cx %>
+  <% end %>
+  <% if not @error_message.nil? %>
+    <div class="invalid-feedback">
+      <%= @error_message %>
+    </div>
+  <% end %>
+</div>
