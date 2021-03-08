@@ -12,4 +12,13 @@
       <% end %>
     </tr>
   </thead>
+
+  <% @rounds.each do |round| %>
+    <tr>
+      <th scope="row"><%= round.number %></th>
+      <% round.scores.order(player_id: :asc).each do |score| %>
+        <td><%= score.value %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>

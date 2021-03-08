@@ -3,7 +3,8 @@ class ScorecardsController < ApplicationController
 
   def show
     @scorecard = current_user.scorecards.find(params[:id])
-    @players = @scorecard.players
+    @players = ordered_players(@scorecard)
+    @rounds = @scorecard.rounds.order(number: :asc)
   end
 
   def new
@@ -15,7 +16,6 @@ class ScorecardsController < ApplicationController
     @scorecard = current_user.scorecards.new(scorecard_params)
     @scorecard.players.each { |p| p.destroy if p.name.nil? or p.name.empty? }
 
-    # binding.irb
     if @scorecard.save
       flash[:notice] = 'Successfully created scorecard'
       redirect_to root_path
@@ -26,6 +26,10 @@ class ScorecardsController < ApplicationController
   end
 
   private
+
+  def ordered_players(scorecard)
+    scorecard.players.order(id: :asc)
+  end
 
   def scorecard_params
     params.require(:scorecard).permit(:name, players_attributes: [:name])
