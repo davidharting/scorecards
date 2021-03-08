@@ -27,7 +27,6 @@ class RoundsController < ApplicationController
       flash[:notice] = 'Successfully recorded round of scores'
       redirect_to @scorecard
     else
-      pry
       flash[:alert] = 'Failed to record scores'
       render :new
     end
