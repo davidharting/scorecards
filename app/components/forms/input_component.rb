@@ -10,8 +10,6 @@ class Forms::InputComponent < ViewComponent::Base
     @has_error = has_error
     @error_message = error_message
     @field_type = field_type
-
-    pry
   end
 
   private
