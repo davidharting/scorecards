@@ -1,0 +1,23 @@
+<h1><%= @scorecard.name %></h1>
+
+<p>Record a round</h1>
+
+
+<%= form_with model: @round, url: scorecard_rounds_path  do |form| %>
+  <ul  class='list-group list-group-flush mb-3'>
+      <%= form.fields_for :scores do |scores_form| %>
+        <li class='list-group-item'>
+          <%= render(Forms::InputComponent.new(
+              form: scores_form,
+              label: "#{scores_form.object.player.name}",
+              attribute: :value,
+              help: "What did #{scores_form.object.player.name} score this round?"
+          )) %>
+        </li>
+    <% end %>
+  </ul>
+
+  <div class="form-group">
+    <%= form.button "Record round", class: 'btn btn-primary' %>
+  </div>
+<% end %>

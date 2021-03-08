@@ -1,4 +1,6 @@
 class Round < ApplicationRecord
   belongs_to :scorecard
-  belongs_to :player
+  has_many :scores
+
+  accepts_nested_attributes_for :scores
 end

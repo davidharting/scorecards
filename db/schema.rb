@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_213251) do
+ActiveRecord::Schema.define(version: 2021_02_28_215633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,11 +85,9 @@ ActiveRecord::Schema.define(version: 2021_02_28_213251) do
 
   create_table "rounds", force: :cascade do |t|
     t.bigint "scorecard_id", null: false
-    t.bigint "player_id", null: false
-    t.integer "score", null: false
+    t.integer "number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["player_id"], name: "index_rounds_on_player_id"
     t.index ["scorecard_id"], name: "index_rounds_on_scorecard_id"
   end
 
@@ -99,6 +97,16 @@ ActiveRecord::Schema.define(version: 2021_02_28_213251) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_scorecards_on_user_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.bigint "round_id", null: false
+    t.bigint "player_id", null: false
+    t.integer "value", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_scores_on_player_id"
+    t.index ["round_id"], name: "index_scores_on_round_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -134,8 +142,9 @@ ActiveRecord::Schema.define(version: 2021_02_28_213251) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "players", "scorecards"
-  add_foreign_key "rounds", "players"
   add_foreign_key "rounds", "scorecards"
   add_foreign_key "scorecards", "users"
+  add_foreign_key "scores", "players"
+  add_foreign_key "scores", "rounds"
   add_foreign_key "services", "users"
 end
