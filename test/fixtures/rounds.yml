@@ -2,10 +2,8 @@
 
 one:
   scorecard: one
-  player: one
-  score: 3
+  number: 1
 
 two:
   scorecard: two
-  player: two
-  score: 45
+  number: 2
