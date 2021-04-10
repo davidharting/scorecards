@@ -6,9 +6,6 @@ class ScorecardsController < ApplicationController
   def show
     @state =
       Scorecards::ShowState.new(user: current_user, scorecard_id: params[:id])
-    # @scorecard = current_user.scorecards.find(params[:id])
-    # @players = ordered_players(@scorecard)
-    # @rounds = @scorecard.rounds.order(number: :asc)
   end
 
   def new
