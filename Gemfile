@@ -79,3 +79,5 @@ gem 'whenever', require: false
 
 
 gem "view_component", "~> 2.26", require: "view_component/engine"
+
+gem "solargraph", "~> 0.40.4", :group => :development

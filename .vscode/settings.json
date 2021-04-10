@@ -5,4 +5,6 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "solargraph.diagnostics": true,
+    "solargraph.useBundler": true,
 }
