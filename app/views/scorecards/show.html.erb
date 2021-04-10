@@ -1,19 +1,19 @@
 <div class="d-flex justify-content-between align-items-center">
-  <h1><%= @scorecard.name %></h1>
-  <%= link_to "Add round", new_scorecard_round_path(@scorecard), class: 'btn btn-primary' %>
+  <h1><%= @state.scorecard.name %></h1>
+  <%= link_to "Add round", new_scorecard_round_path(@state.scorecard), class: 'btn btn-primary' %>
 </div>
 
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Round</th>
-      <% @players.each do |p| %>
+      <% @state.players.each do |p| %>
         <th scope="col"><%= p.name %></th>
       <% end %>
     </tr>
   </thead>
 
-  <% @rounds.each do |round| %>
+  <% @state.rounds.each do |round| %>
     <tr>
       <th scope="row"><%= round.number %></th>
       <% round.scores.order(player_id: :asc).each do |score| %>
