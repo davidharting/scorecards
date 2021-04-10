@@ -14,19 +14,24 @@
   },
   // Set *default* container specific settings.json values on container create.
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.shell.linux": "/bin/bash"
   },
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-	"rebornix.Ruby",
+	"castwide.solargraph",
 	"bung87.rails",
 	"bung87.vscode-gemfile",
-	"esbenp.prettier-vscode"
+	"esbenp.prettier-vscode",
+	"kaiwood.endwise",
+	"rebornix.Ruby",
+	"jemmyw.rails-fast-nav",
+	"wingrunr21.vscode-ruby",
+	"pavlitsky.yard"
 ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
     3000, // Applications
-    5432, // Postgres
+    5432 // Postgres
     // TODO: Redis
     // TODO: Sidekiq web
   ],
