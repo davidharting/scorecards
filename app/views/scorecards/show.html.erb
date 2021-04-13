@@ -23,4 +23,13 @@
       <% end %>
     </tr>
   <% end %>
+
+  <tr>
+    <th scope="row">Total</th>
+    <% @state.sums_ordered_by_player_id.each do |sum| %>
+      <td>
+        <b><%= sum %></b>
+      </td>
+    <% end %>
+  </tr>
 </table>

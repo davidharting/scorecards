@@ -10,13 +10,6 @@ class ScoreTest < ActiveSupport::TestCase
     assert_equal state.scorecard.players.size, 3
   end
 
-  test 'sum_by_user_id should add up sums for each user' do
-    sum_by_user_id = get_state.sum_by_user_id
-    assert_equal sum_by_user_id[players(:frodo).id], 20
-    assert_equal sum_by_user_id[players(:gandalf).id], 154
-    assert_equal sum_by_user_id[players(:sam).id], 75
-  end
-
   test 'lookup_score should return the score for a given player and round' do
     cases = [
       %i[one frodo frodo_one],
@@ -40,6 +33,18 @@ class ScoreTest < ActiveSupport::TestCase
         )
       assert_equal actual.value, scores(c[2]).value
     end
+  end
+
+  test 'sums_ordered_by_player_id returns an array of score sums, ordered by player_id asc' do
+    tuples = [
+      [players(:frodo).id, 20],
+      [players(:gandalf).id, 154],
+      [players(:sam).id, 75],
+    ]
+    tuples = tuples.sort { |t1, t2| t1[0] - t2[0] }
+    expected = tuples.map { |t| t[1] }
+
+    assert_equal expected, get_state.sums_ordered_by_player_id
   end
 
   test 'ordered_players returns the players ordered by ID asc' do

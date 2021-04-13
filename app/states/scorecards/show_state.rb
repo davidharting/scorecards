@@ -7,13 +7,11 @@ module Scorecards
 
     attr_reader :scorecard
 
-    def sum_by_user_id
-      sum_by_id = {}
-      scorecard.players.each do |player|
-        scores = player.scores.map { |s| s.value }
-        sum_by_id[player.id] = scores.reduce(:+)
+    def sums_ordered_by_player_id
+      ordered_players.map do |player|
+        score_values = player.scores.map { |score| score.value }
+        score_values.reduce(:+)
       end
-      return sum_by_id
     end
 
     def ordered_players
