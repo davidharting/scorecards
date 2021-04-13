@@ -1,15 +1,6 @@
 require 'test_helper'
 
 class ScoreTest < ActiveSupport::TestCase
-  test 'the truth' do
-    assert true
-  end
-
-  test 'just see what it fetches' do
-    state = get_state
-    assert_equal state.scorecard.players.size, 3
-  end
-
   test 'lookup_score should return the score for a given player and round' do
     cases = [
       %i[one frodo frodo_one],

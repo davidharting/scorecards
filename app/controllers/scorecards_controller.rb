@@ -1,5 +1,3 @@
-# require_relative '../states/scorecards/show'
-
 class ScorecardsController < ApplicationController
   before_action :authenticate_user!
 
