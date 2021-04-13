@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  scorecard: one
-  name: David
+frodo:
+  scorecard: hand_and_foot
+  name: Frodo
 
-two:
-  scorecard: two
-  name: Stanley
+gandalf:
+  scorecard: hand_and_foot
+  name: Gandalf
+
+sam:
+  scorecard: hand_and_foot
+  name: Sam

@@ -1,7 +1,3 @@
-frodo:
-  email: frodo@shirelife.com
+david:
+  email: david.harting@hey.com
   encrypted_password: "ey1d"
-
-bilbo:
-  email: bilbo@shirelife.com
-  encrypted_password: "abc123"

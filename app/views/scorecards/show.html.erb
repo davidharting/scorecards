@@ -7,17 +7,19 @@
   <thead>
     <tr>
       <th scope="col">Round</th>
-      <% @state.players.each do |p| %>
+      <% @state.scorecard.players.each do |p| %>
         <th scope="col"><%= p.name %></th>
       <% end %>
     </tr>
   </thead>
 
-  <% @state.rounds.each do |round| %>
+  <% @state.scorecard.rounds.each do |round| %>
     <tr>
       <th scope="row"><%= round.number %></th>
-      <% round.scores.order(player_id: :asc).each do |score| %>
-        <td><%= score.value %></td>
+      <% @state.ordered_players.each do |player| %>
+        <td>
+          <%= @state.lookup_score(player_id: player.id, round_id: round.id).value %>
+        </td>
       <% end %>
     </tr>
   <% end %>

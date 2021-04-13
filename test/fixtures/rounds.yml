@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  scorecard: one
+  scorecard: hand_and_foot
   number: 1
 
 two:
-  scorecard: two
+  scorecard: hand_and_foot
   number: 2
+
+three:
+  scorecard: hand_and_foot
+  number: 3
