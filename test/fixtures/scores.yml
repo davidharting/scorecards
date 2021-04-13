@@ -1,11 +1,46 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+frodo_one:
   round: one
-  player: one
-  value: 1
+  player: frodo
+  value: 15
 
-two:
+frodo_two:
   round: two
-  player: two
-  value: 1
+  player: frodo
+  value: 0
+
+frodo_three:
+  round: three
+  player: frodo
+  value: 5
+
+gandalf_one:
+  round: one
+  player: gandalf
+  value: 95
+
+gandalf_two:
+  round: two
+  player: gandalf
+  value: 17
+
+gandalf_three:
+  round: three
+  player: gandalf
+  value: 42
+
+sam_one:
+  round: one
+  player: sam
+  value: 50
+
+sam_two:
+  round: two
+  player: sam
+  value: 25
+
+sam_three:
+  round: three
+  player: sam
+  value: 0

@@ -2,9 +2,8 @@ class ScorecardsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @scorecard = current_user.scorecards.find(params[:id])
-    @players = ordered_players(@scorecard)
-    @rounds = @scorecard.rounds.order(number: :asc)
+    @state =
+      Scorecards::ShowState.new(user: current_user, scorecard_id: params[:id])
   end
 
   def new
