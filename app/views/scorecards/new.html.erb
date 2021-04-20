@@ -24,11 +24,17 @@
             ),
           )
         %>
+        <% if @scorecard.players.size > 1 %>
+          <%= players_form.button "Remove", value: "remove_player=#{players_form.index}", class: 'btn btn-secondary' %>
+        <% end %>
       </li>
+      <%= players_form.button "Add player", value: "add_player", class: 'btn btn-secondary', data: {"add_player": true} %>
     <% end %>
   </ul>
 
+  <hr />
+
   <div class="form-group">
-    <%= form.button "Create", class: 'btn btn-primary' %>
+    <%= form.button "Create", class: 'btn btn-primary w-100' %>
   </div>
 <% end %>
